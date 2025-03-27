@@ -49,9 +49,21 @@ function token($dlugosc = 10) {
     }
     return $randomString;
 }
-
-echo "<p>Jednorazowy token dostępu do skarbca: " . token(10) . "</p>";
-
+if(isset($_POST['login']) && isset($_POST['password'])) {
+$login = $_POST['login'];
+$password = $_POST['password'];
+}else{
+	echo "Nie wprowadzono jedno z danych albo wcale";
+}
+if($login == 'pawlo' && $password == 'napadnabank') {
+	echo "Witaj Pawel wez sie do roboty leniu xD";
+	echo "<p>Jednorazowy token dostępu do skarbca: " . token(10) . "</p>";
+}else if($login=='gawlo' && $password =='likeaboss') {
+	echo "Witaj Gawel szefie wszystkich szefow!";
+	echo "<p>Jednorazowy token dostępu do skarbca: " . token(10) . "</p>";
+}else{
+	echo "Zle dane";
+}
 ?>
 
 		</article>
